@@ -69,6 +69,7 @@ new TodoWarp({
 // extend创建的是一个组件构造器，而不是一个具体的组件实例。
 // 所以他不能直接在new Vue中这样使用： new Vue({components: fuck})
 // 最终还是要通过Vue.components || Vue.component 注册才可以使用的。
+// Vue.component是注册一个全局组件，Vue.component下面创建的实例都可以使用该子组件，但是之前的不可以
 Vue.component('todo', TodoWarp)
 
 /* eslint-disable no-new */
