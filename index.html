@@ -4,8 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>vue-dev-demo</title>
+    <style>
+    .todoWrap {
+      background: #808695
+;
+      line-height: 50px;
+      color: white;
+      font-size: 16px;
+      padding-left: 24px
+    }
+    #app2 .todoWrap{
+      background: #c5c8ce;
+    }
+    </style>
   </head>
   <body>
+    <div id="app1">
+        <todo :todo-data="groceryList"></todo>
+    </div>
+    <div id="app2">
+      <todo :todo-data="groceryList"></todo>
+    </div>
     <div id="app">
     </div>
     <!-- extend 实例使用 -->
