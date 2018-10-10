@@ -10,6 +10,14 @@ Vue.config.productionTip = false
 
 Vue.use(iView)
 
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+})
+
 const todoItem = Vue.extend({
   template: ` <li> {{ text }} </li> `,
   props: {
@@ -20,6 +28,9 @@ const todoItem = Vue.extend({
   }
 })
 
+// Vue.extend({}) 返回的是一个组件构造器，new Vue({})一个具体的组件实例
+// new TodoWrap({}) 返回的才是一个组件实例
+// 注意 el || propsData 不能用在子组件和extend中，只能用在构造函数（如 new Vue({})）中
 const TodoWrap = Vue.extend({
   template: `
       <div class="todoWrap">
@@ -46,16 +57,8 @@ const TodoWrap = Vue.extend({
   }
 })
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
-})
-
-// 结果同上 new Vue 创建一个新实例
-// 请注意，在实例化extends组件构造器时，传入属性必须是propsData、而不是props哦
+// 结果同上面的 new Vue({}) 创建一个新实例
+// 请注意，对于一个根实例 (比如：用 new Vue({ ... }) 创建的实例)，传入属性必须是propsData、而不是props哦
 new TodoWrap({
   el: '#app1',
   router,
@@ -65,6 +68,15 @@ new TodoWrap({
     ]
   }
 })
+// 结构同下，$el挂载的元素，也可以用$mount()挂载
+// new TodoWrap({
+//   router,
+//   propsData: {
+//     todoData: [
+//       { id: 0, text: '这个是通过extend创建的实例' }
+//     ]
+//   }
+// }).$mount('#app1')
 
 // extend创建的是一个组件构造器，而不是一个具体的组件实例。
 // 所以他不能直接在new Vue中这样使用： new Vue({components: fuck})
