@@ -20,7 +20,7 @@ const todoItem = Vue.extend({
   }
 })
 
-const TodoWarp = Vue.extend({
+const TodoWrap = Vue.extend({
   template: `
       <div class="todoWrap">
         <ul>
@@ -56,7 +56,7 @@ new Vue({
 
 // 结果同上 new Vue 创建一个新实例
 // 请注意，在实例化extends组件构造器时，传入属性必须是propsData、而不是props哦
-new TodoWarp({
+new TodoWrap({
   el: '#app1',
   router,
   propsData: {
@@ -70,15 +70,15 @@ new TodoWarp({
 // 所以他不能直接在new Vue中这样使用： new Vue({components: fuck})
 // 最终还是要通过Vue.components || Vue.component 注册才可以使用的。
 // Vue.component是注册一个全局组件，Vue.component下面创建的实例都可以使用该子组件，但是之前的不可以
-Vue.component('todo', TodoWarp)
+Vue.component('todo', TodoWrap)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app2',
   router,
-  // 结果同上面的 Vue.component 注册一个子组件TodoWarp
+  // 结果同上面的 Vue.component 注册一个子组件TodoWrap
   // components: {
-  //   todo: TodoWarp
+  //   todo: TodoWrap
   // },
   data: {
     groceryList: [

@@ -2,6 +2,9 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <pre v-pre data-lang="javascript"><code>
+      const a = 999
+    </code></pre>
   </div>
 </template>
 <script>
