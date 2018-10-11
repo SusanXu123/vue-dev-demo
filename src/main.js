@@ -59,6 +59,7 @@ const TodoWrap = Vue.extend({
 
 // 结果同上面的 new Vue({}) 创建一个新实例
 // 请注意，对于一个根实例 (比如：用 new Vue({ ... }) 创建的实例)，传入属性必须是propsData、而不是props哦
+/* eslint-disable no-new */
 new TodoWrap({
   el: '#app1',
   router,
@@ -85,16 +86,18 @@ new TodoWrap({
 Vue.component('todo', TodoWrap)
 
 /* eslint-disable no-new */
-new Vue({
+const vm = new Vue({
   el: '#app2',
   router,
   // 结果同上面的 Vue.component 注册一个子组件TodoWrap
   // components: {
   //   todo: TodoWrap
   // },
+  // 根实例下data 可以是对象
   data: {
     groceryList: [
       { id: 0, text: '这个是通过Vue.component全局注册的组件' }
     ]
   }
 })
+console.log(vm)
