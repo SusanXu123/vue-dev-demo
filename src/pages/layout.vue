@@ -13,9 +13,9 @@
       </Menu>
       </Sider>
       <Layout :style="{marginLeft: '200px'}">
-          <!-- <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">
-          </Header> -->
-          <Content :style="{padding: '0 16px 16px'}">
+          <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}">
+          </Header>
+          <Content :style="{padding: '0 16px 16px', marginTop: '16px'}">
             <Card>
                 <router-view/>
             </Card>
