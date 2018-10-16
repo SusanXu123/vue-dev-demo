@@ -1,13 +1,13 @@
 <template>
   <div class="layout">
     <Sider :style="{position: 'fixed', height: '100vh', left: 0, overflow: 'auto'}" ref="side1">
-      <Menu :active-name="activeName" theme="dark" width="auto" :open-names="openNames" :accordion="true" @on-select="selectMenu">
+      <Menu :active-name="activeName" theme="dark" width="auto" :open-names="openNames" :accordion="true">
           <submenu :name="menu.name" v-for="menu in routers" :key="menu.name">
               <template slot="title">
                 {{menu.meta.title}}
               </template>
               <template v-if="menu.children && menu.children.length">
-                <menu-item :name="item.name" v-for="item in menu.children" :key="item.name">{{item.meta.title}}</menu-item>
+                <menu-item :name="item.name" v-for="item in menu.children" :key="item.name" :to="'/'+menu.name+'/'+item.name">{{item.meta.title}}</menu-item>
               </template>
           </submenu>
       </Menu>
@@ -35,6 +35,8 @@ export default {
   },
   methods: {
     selectMenu (menu) {
+      console.log(this.activeName)
+      debugger
       this.$router.push(`/${this.activeName}/${menu}`)
     }
   }
