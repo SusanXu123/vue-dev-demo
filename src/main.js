@@ -1,5 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+// import Vue from '/Users/xiaojuan/xujuan/studySpace/MyDemo/Frontend/Vue/vue-dev/dist/vue.runtime.common.js'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -86,18 +87,27 @@ new TodoWrap({
 Vue.component('todo', TodoWrap)
 
 /* eslint-disable no-new */
-const vm = new Vue({
-  el: '#app2',
-  router,
-  // 结果同上面的 Vue.component 注册一个子组件TodoWrap
-  // components: {
-  //   todo: TodoWrap
-  // },
-  // 根实例下data 可以是对象
-  data: {
-    groceryList: [
-      { id: 0, text: '这个是通过Vue.component全局注册的组件' }
-    ]
-  }
-})
-console.log(vm)
+// const vm = new Vue({
+//   el: '#app2',
+//   router,
+//   // 结果同上面的 Vue.component 注册一个子组件TodoWrap
+//   // components: {
+//   //   todo: TodoWrap
+//   // },
+//   // 根实例下data 可以是对象
+//   data: {
+//     groceryList: [
+//       { id: 0, text: '这个是通过Vue.component全局注册的组件' }
+//     ],
+//     a: 88
+//   }
+// })
+
+// vm.$watch('a', (va, od) => {
+//   debugger
+// })
+// console.log(vm)
+// debugger
+// setTimeout(function () {
+//   vm.a = 999
+// }, 1000)
