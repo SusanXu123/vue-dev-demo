@@ -4,6 +4,7 @@ const HooksStrats = () => import('@/pages/merge/hooks-strats.vue')
 const AssetsStrats = () => import('@/pages/merge/assets-strats.vue')
 const Apis = () => import('@/pages/apis/apis.vue')
 const vModel = () => import('@/pages/apis/v-model.vue')
+const vSlot = () => import('@/pages/v-slot/index.vue')
 
 export default [
   {
@@ -51,5 +52,13 @@ export default [
       },
       component: vModel
     }]
+  },
+  {
+    path: '/v-slot',
+    name: 'v-slot',
+    meta: {
+      title: 'v-slot'
+    },
+    component: vSlot
   }
 ]
